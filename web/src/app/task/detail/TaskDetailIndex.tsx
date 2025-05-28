@@ -172,7 +172,7 @@ const TaskDetailIndex: React.FC<Props> = (props) => {
 							已完成
 						</Button>
 					) : remainingTime > 0 ? (
-						myGroup ? (
+						finished === false ? (
 							<Button
 								variant="contained"
 								className="self-center ml-auto"
@@ -223,7 +223,7 @@ const TaskDetailIndex: React.FC<Props> = (props) => {
 						{resources.map((v, index) => (
 							<div key={v.id}>
 								{index !== 0 && <Divider />}
-								<ResourceItem key={v.id} resource={v} />
+								<ResourceItem key={v.id} res={v} />
 							</div>
 						))}
 					</Paper>
@@ -239,7 +239,7 @@ const TaskDetailIndex: React.FC<Props> = (props) => {
 							recommend.map((v, index) => (
 								<div key={v.id}>
 									{index !== 0 && <Divider />}
-									<ResourceItem key={v.id} resource={v} />
+									<ResourceItem key={v.id} res={v} />
 								</div>
 							))
 						)}

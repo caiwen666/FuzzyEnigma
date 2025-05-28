@@ -250,11 +250,7 @@ const TaskAttachmentForm: React.FC<Props> = (props) => {
 					{resources.map((v, index) => (
 						<div key={v.id}>
 							{index !== 0 && <Divider />}
-							<ResourceItem
-								resource={v}
-								onDelete={handleDelete}
-								loading={loading}
-							/>
+							<ResourceItem res={v} onDelete={handleDelete} loading={loading} />
 						</div>
 					))}
 				</Paper>

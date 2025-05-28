@@ -1,5 +1,4 @@
 import { Resource } from "@/entity/resource";
-import { DefaultProps } from "@/utils/type";
 import {
 	InsertDriveFileOutlined,
 	CommentOutlined,
@@ -12,23 +11,24 @@ import { ButtonBase, Divider, Button } from "@mui/material";
 import classNames from "classnames";
 import React from "react";
 
-interface Props extends DefaultProps {
-	resource: Resource;
+interface Props {
+	res: Resource;
 	onDelete?: (id: number) => void;
 	loading?: string;
+	className?: string;
 }
 
 const ResourceItem: React.FC<Props> = (props) => {
-	const [resource, setResource] = React.useState<Resource>(props.resource);
+	const [resource, setResource] = React.useState<Resource>(props.res);
 	const [loading, setLoading] = React.useState<string>(props.loading || "");
 	const [className, setClassName] = React.useState<string>(
 		props.className || "",
 	);
 	React.useEffect(() => {
-		setResource(props.resource);
+		setResource(props.res);
 		setLoading(props.loading || "");
 		setClassName(props.className || "");
-	}, [props.resource, props.loading, props.className]);
+	}, [props.res, props.loading, props.className]);
 	const { onDelete } = props;
 	return (
 		<ButtonBase

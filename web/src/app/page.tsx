@@ -6,7 +6,7 @@ import { getParticipatedTaskList } from "@/api/task";
 import ErrorPageTemplate from "@/components/page/ErrorPageTemplate";
 import { formatToString } from "@/utils";
 
-export const HomePage = async () => {
+export default async function HomePage() {
 	const header = await headers();
 	const session = header.get("session") as string;
 	const r = await getServerRequest(session);
@@ -22,6 +22,4 @@ export const HomePage = async () => {
 			<ErrorPageTemplate title="加载页面时出错" info={formatToString(e)} />
 		);
 	}
-};
-
-export default HomePage;
+}

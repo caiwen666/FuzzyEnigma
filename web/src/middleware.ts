@@ -5,11 +5,13 @@ import { getUserInfo } from "./api/user";
 import { match } from "path-to-regexp";
 
 const withAuth = async (request: NextRequest) => {
-	console.log("withAuth");
-	const jump = new URL(
-		"/user/login?callback=" + request.nextUrl.href,
-		request.nextUrl.origin,
-	);
+	const host =
+		request.headers.get("x-forwarded-host") || request.headers.get("host")!;
+	const proto = request.headers.get("x-forwarded-proto") || "http";
+	const realOrigin = `${proto}://${host}`;
+	const url = request.nextUrl;
+	const realHref = `${realOrigin}${url.pathname}${url.search}`;
+	const jump = new URL("/user/login?callback=" + realHref, realOrigin);
 	if (request.cookies.has("session")) {
 		const session = request.cookies.get("session")?.value;
 		if (!session) {

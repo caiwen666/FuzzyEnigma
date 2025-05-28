@@ -1,6 +1,6 @@
 export const WEBSITE_NAME = "Fuzzy-Enigma";
 export const API_URL_LOCAL = "http://127.0.0.1:15565";
-export const API_URL_REMOTE = "http://127.0.0.1:15565";
+export const API_URL_REMOTE = "http://api.fe.caiwen.work";
 export const EnableDebugLog = true;
 
 export const TASK_RED_LIMIT = 1000 * 60 * 60 * 3; // 3 hours
