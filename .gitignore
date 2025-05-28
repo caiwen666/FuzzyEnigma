@@ -1,0 +1,8 @@
+/server/target
+/server/logs
+/web/.next
+/web/node_modules
+/server/data/files
+/.vscode
+/.VSCodeCounter
+/release
